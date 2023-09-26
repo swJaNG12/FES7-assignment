@@ -1,0 +1,168 @@
+/* font --------------------------------- */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pretendard-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff')
+    format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* reset ------------------------ */
+body, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3 {
+  font: inherit;
+}
+body {
+  font-family: 'Pretendard-Regular';
+  background-color: #FFFAF0;
+
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  color: #f4f5f5;
+  border: 0;
+  background: 0;
+}
+button:enabled {
+  cursor: pointer;
+}
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+
+/* css 스타일----------------------- */
+.max-width {
+  width: 1224px;
+  max-width: 100%;
+  max-width: calc(100% - 60px);
+  margin: auto;
+}
+
+
+
+.header {
+  background-color: #fff;
+}
+.header .max-width {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* index.html 일기쓰기 페이지 헤더 */
+.header .login-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media (min-width: 601px) {
+  .header .login-text p::after {
+    content: "|";
+    margin-left: 24px;
+    color: #D8DDDE;
+  }
+}
+@media (max-width: 600px) {
+  .header .login-text p {
+    position: absolute;
+    top: 140px;
+    right: 30px;
+  }
+}
+
+
+
+.login {
+  background-color: #FFFAF0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .main-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main  .main-title img {
+  width: 250px;
+  height: 120px;
+}
+main .main-title strong {
+  font-family: 'Pretendard-Bold';
+  margin-top: 29px;
+}
+
+
+
+.form div {
+  width: 392px;
+}
+.form label {
+  display: block;
+  margin-bottom: 8px;
+}
+.form input {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 24px;
+  border: 0;
+  border-bottom: 1px solid #677880;
+  box-sizing: border-box;
+}
+.form button {
+  width: 100%;
+  height: 48px;
+  background-color: #29363D;
+}
+.footer {
+  text-align: center;
+  margin-top: 52px;
+}
+
+
+/* 버튼 */
+.form button[type="submit"] {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+}
+.btn {
+  padding: 4px 20px 4px 46px;
+  display: inline-flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+  background-position: 10px 50%;
+  font-family: 'Pretendard-Bold';
+  font-size: 14px;
+}
+.header .login-btn {
+  background-image: url('../img/icon-login.svg');
+}
+.header .join-btn {
+  background-image: url('../img/icon-join.svg');
+}
+.header .logout-btn {
+  background-image: url('../img/icon-logout.svg');
+}

@@ -1,0 +1,63 @@
+.tit-law {
+  position: relative;
+}
+.tit-law::after {
+  content: '';
+  background-image: url('../../images/title_bg.png');
+  background-position: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 225px;
+  width: 100%;
+  background-size: contain;
+  aspect-ratio: 1/1;
+}
+
+.tit-law .img-tit {
+  position: relative;
+  max-width: 564px;
+  z-index: 10;
+}
+
+.img-txt {
+  max-width: 486px;
+  margin: 125px 0 78px;
+}
+
+.txt-advise {
+  padding-bottom: 102px;
+  position: relative;
+  max-width: 493px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 24px;
+}
+.txt-advise strong {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.txt-advise::before,
+.txt-advise::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 37px;
+  height: 32px;
+  margin-top: -14px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.txt-advise::before {
+  background-image: url('../../images/txt-left.png');
+  left: 0;
+}
+.txt-advise::after {
+  background-image: url('../../images/txt-right.png');
+  right: 0;
+}

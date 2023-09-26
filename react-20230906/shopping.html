@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping mall product list</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type='text/babel'>
+
+    const Card = ({item}) => {
+      console.log(item)
+      const url = 'http://test.api.weniv.co.kr/'+item.thumbnailImg;
+
+      return (
+        <li>
+          <img src={url} alt="" />
+          <p>{item.productName}</p>
+          <p>{item.price}<span>원</span></p>
+        </li>
+      );
+    }
+
+    const Product = ({data}) => {
+      console.log('Product',data)
+      return (
+        <ul>
+          <Card item={data[0]} />
+          <Card item={data[1]} />
+          <Card item={data[2]} />
+          <Card item={data[3]} />
+          <Card item={data[4]} />
+          <Card item={data[5]} />
+          <Card item={data[6]} />
+        </ul>
+      );
+    }
+
+    const Body = (props) => {
+      console.log('Body',props)
+      return (
+        <div>
+          <Product data={props.data} />
+        </div>
+      );
+    }
+
+    const paint = async () => {
+
+      try {
+        const response = await fetch('http://test.api.weniv.co.kr/mall');
+        console.log(response);
+        if(!response.ok) {
+          throw new Error('HTTP ERROR', response.status);
+        }
+
+        const data = await response.json();
+        if(!data) {
+          throw new Error('No data recevied');
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        root.render(<Body data={data} />);
+        
+      } catch (error) {
+        if(error instanceof TypeError) {
+          
+          console.error('Network error!!!!', error.message);
+        } else {
+          console.error('An error occured!!!!:', error.message)
+        }
+      }
+
+    }
+
+    paint();
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+body, h1, h2, ol, li {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+ol, li {
+  list-style: none;
+}
+input {
+  border: none;
+}
+button {
+  border: 0;
+  background-color: #fff;
+}
+button:enabled {
+  cursor: pointer;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+.modal {
+  width: 500px;
+  display: flex;
+  margin: 30px auto;
+  justify-content: space-evenly;
+  background-color: #fff;
+  padding: 20px 0px 17px;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  position: relative;
+}
+.left,
+.right {
+  padding: 5px
+}
+.left {
+  background-color: #fff;
+}
+.left h1 {
+  margin-bottom: 10px;
+}
+.left li ~ li {
+  margin-top: 5px;
+}
+.left input {
+  border-bottom: 1px solid #bdbdbd;
+  padding: 3px;
+  font: 14px;
+}
+.btn-sign {
+  margin-top: 20px;
+  background-color: #d05fb6;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.left::after {
+  content: '또는';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: rgb(236, 200, 200);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
+.right {
+  margin-left: 50px;
+}
+.sns-login-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px 0;
+}
+
+.login-btn {
+  box-shadow: 0 0 7px rgba(0,0,0,.4);
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.facebook {
+  background-color: #6b4290;
+}
+.twitter {
+  background-color: #2c8fa29e;
+}
+.google {
+  background-color: #63bc73;
+}

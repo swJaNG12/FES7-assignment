@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    'use strict';
+
+    class UserStorage {
+      searchUser(userName, password, onSuccess, onError) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'users.json');
+        xhr.responseType = 'json';
+
+        xhr.onreadystatechange = () => {
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            // xhr.response는 json 문자열 형태
+            // JSON.parse(xhr.reponse)는 자바스크립트 객체
+            // result의 값은 users.json에서 userName과 password가 둘다 일치하는 경우에는
+            // 그에 해당하는 객체가 반환이되고 일치하지 않는 경우에는 undefined가 반환된다.
+            const result = xhr.response.user.find(item => {
+              return item.userName === userName && item.password === password
+            });;
+            console.log(xhr);
+            console.log(xhr.response)
+            // console.log(xhr.responseText)
+            console.log(result)
+
+            
+            if(result) {
+              // 사용자가 입력한 정보와 일치하는 유저가 존재한다면
+              onSuccess(userName);
+            } else {
+              // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
+              onError(new Error('일치하는 유저 정보가 없습니다. user Not Found'));
+            }
+          }
+        }
+
+        xhr.send();
+      }
+
+      sayHi(user, onSuccess, onError) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'greetings.json');
+        xhr.responseType = 'json';
+        
+        xhr.onreadystatechange = () => {
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            // result의 값은 greetings.json에 user(유저 이름)과 일치하는 userName이 있다면
+            // 그에 해당하는 유저 객체가 반환되고 없으면 undefined가 반환된다.
+            console.log(xhr)
+            const result = xhr.response.greetings.find(item => {
+              return item.userName === user;
+            })
+
+            console.log(result);
+
+            if(result) {
+              // 사용자가 입력한 유저이름과 일치하는 인사말이 존재하면
+              onSuccess(result);
+            } else {
+              // 사용자가 입력한 유저이름과 일치하는 인사말이 없다면
+              onError(new Error('사용자 이름과 일치하는 인사말이 없습니다. No greeting!!!'));
+            }
+          }
+          
+          
+        }
+
+        xhr.send();
+      }
+    }
+
+    const userName = prompt('이름을 입력하세요');
+    const password =prompt('비밀번호를 입력하세요');
+
+    const userStorage = new UserStorage();
+    userStorage.searchUser(
+      userName,
+      password,
+      (name) => {
+        userStorage.sayHi(
+          name,
+          (result) => {
+            alert(`당신에게 인사합니다.!!!! ${result.userName}님 ${result.greetings}`)
+          },
+          (error) => {
+            console.error(error);
+          }
+        )
+      },
+      (error) => {
+        console.error(error)
+      }
+    );
+  </script>
+</body>
+</html>

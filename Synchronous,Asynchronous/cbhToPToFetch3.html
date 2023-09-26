@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    'use strict';
+
+    class UserStorage {
+      async searchUser(userName, password) {
+
+        try {
+          const response = await fetch('./users.json');
+          if(!response.ok) {
+            throw new Error('HTTP ERROR!!!', response.status);
+          }
+
+          const data = await response.json();
+          const result = data.user.find(item => {
+            return item.userName === userName && item.password === password;
+          })
+
+          if(result) {
+            return userName;
+          } else {
+            throw new Error('일치하는 유저가 없습니다.!!!');
+          }
+
+        } catch (error) {
+          console.log(error)
+          throw error;
+        }
+      }
+
+      async sayHi(user) {
+
+        try {
+          const response = await fetch('./greetings.json');
+          if(!response.ok) {
+            throw new Error('HTTP ERROR!!!', response.status);
+          }
+
+          const data = await response.json();
+          const result = data.greetings.find(item => {
+            return item.userName === user;
+          })
+
+          if(result) {
+            return result;
+          } else {
+            throw new Error('일치하는 인삿말이 없습니다!!!');
+          }
+
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      }
+    }
+
+    const userName = prompt('이름을 입력하세요').trim();
+    const password = prompt('비밀번호를 입력하세요').trim();
+
+    const userStorage = new UserStorage();
+    const sayHello = async () => {
+      try {
+        const result = await userStorage.searchUser(userName, password);
+        const user = await userStorage.sayHi(result);
+
+        alert(`당신에게 인사합니다! ${user.userName}님 ${user.greetings}`);
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    
+    sayHello()
+
+  </script>
+</body>
+</html>

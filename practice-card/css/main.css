@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'Pretendard-normal';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pretendard-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+body, p {
+  margin: 0;
+}
+a {
+  color: #29363D;
+}
+body {
+  font-size: 12px;
+  font-family: 'Pretendard-Regular';
+  color: #5A6A72;
+}
+.card {
+  width: 288px;
+  height: 374px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.10);
+  margin: 20px auto;
+  border-radius: 8px;
+}
+.card header {
+  display: flex;
+  padding: 16px 16px 0;
+}
+.card header img {
+  border-radius: 50%;
+}
+.card header .text {
+  width: 100%;
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card header .text .title {
+  font-size: 16px;
+  font-family: 'Pretendard-Bold';
+  color: #29363D;
+}
+.card main img {
+  width: 288px;
+  height: 196px;
+  padding: 16px 0 10px 0;
+}
+.card main p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* border: 1px solid red; */
+  margin: 0 16px;
+  line-height: 20px;
+}
+.card footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+
+}
+.card footer .read {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+}
+.card footer .read a {
+  font-size: 14px;
+  font-family: 'Pretendard-Bold';
+}
+.card footer .icons {
+  margin-right: 16px;
+}
+.card footer .icons img {
+  margin-right: 8px;
+}
+.card footer .icons img:last-child {
+  margin-right: 0;
+}

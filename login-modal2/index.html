@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login modal</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <h1 class="a11y-hidden">로그인 또는 회원가입 및 sns 계정 연결</h1>
+  <div class="modal">
+    
+    <h2 class="a11y-hidden">제목 및 나가기</h2>
+    <header>
+      <h3 class="a11y-hidden">로그인 또는 회원가입</h3>
+      <p class="header-title">로그인 또는 회원가입</p>
+      <button class="btn-close">
+        <span class="a11y-hidden">나가기</span>
+      </button>
+    </header>
+
+    <h2 class="a11y-hidden">로그인 및 sns 계정연결</h2>
+    <main>
+      <p class="section1-title">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+      <section class="login-section">
+        <h3 class="a11y-hidden">로그인 폼</h3>
+        <form class="login-form" action="#">
+          <div class="input-id">
+            <label class="a11y-hidden" for="user-id">아이디</label>
+            <input class="user-id br-5" id="user-id" type="text" placeholder="아이디">
+          </div>
+          <div class="error-message-id">
+            아이디를 입력해 주세요.
+          </div>
+          <div class="input-pw">
+            <label class="a11y-hidden" for="user-pw">비밀번호</label>
+            <input class="user-pw br-5" id="user-pw" type="password" placeholder="비밀번호">
+          </div>
+          <div class="error-message-id-pw">
+            아이디 혹은 비밀번호과 일치하지 않습니다.
+          </div>
+
+          <div class="login-keep-wrap">
+            <div class="keep-check">
+              <input type="checkbox" id="keep" class="input-keep">
+              <label for="keep" class="keep-text">로그인 상태 유지</label>
+            </div>
+          </div>
+
+          <button class="btn-login br-5" type="submit">로그인</button>
+          
+          <ul class="join-find">
+            <li>
+              <a class="join" href="#">회원가입</a>
+            </li>
+            <li>
+              <a class="find" href="#">아이디/비밀번호 찾기</a>
+            </li>
+          </ul>
+        </form>
+      </section>
+
+      <section class="sns-section">
+        <h3 class="a11y-hidden">sns 계정 연결</h3>
+        <ul class="sns-list">
+          <li>
+            <button class="btn-google google br-5" href="#">
+              <img src="./images/Google__G__Logo 1.png" alt="구글 로고">
+              <span>구글 계정으로 로그인</span>
+            </button>
+          </li>
+          <li>
+            <button class="btn-facebook facebook br-5" href="#">
+              <img src="./images/facebook.png" alt="페이스북 로고">
+              <span>페이스북 계정으로 로그인</span>
+            </button>
+          </li>
+          <li>
+            <button class="btn-naver naver br-5" href="#">
+              <img src="./images/naver-logo.png" alt="네이버 로고">
+              <span>네이버 계정으로 로그인</span>
+            </button>
+          </li>
+          <li>
+            <button class="btn-kakao kakao br-5" href="#">
+              <img src="./images/message-circle.png" alt="메세지 서클">
+              <span>카카오톡 계정으로 로그인</span>
+            </button>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h1>message.txt와 통신하기</h1>
+  <button>통신시작</button>
+
+  <script>
+    // 초기 버전
+    // const btn = document.querySelector('button');
+
+    // const xhrRequest = e => {
+    //   const xhr = new XMLHttpRequest();
+    //   xhr.open('GET', './message.txt');
+    //   console.log('밖1',xhr)
+
+    //   xhr.onreadystatechange = () => {
+    //     if(xhr.readyState === 4 && xhr.status === 200) {
+    //       const result = xhr.responseText;
+    //       console.log('안',result);
+
+    //       const p = document.createElement('p');
+    //       p.textContent = result;
+    //       document.body.append(p);
+    //     }
+    //   }
+    //   xhr.send();
+
+
+    // }
+
+    // btn.addEventListener('click', xhrRequest);
+
+    // ========================================================================
+    // ========================================================================
+
+    // 위 코드의 개선버전
+    // 개선점
+    // 1. XMLHttprequest 대신 fetch api 사용하기
+    // 2. 에러 처리 추가: fetch를 사용할 때 오류를 처리하고 사용자에게 적절한 메시지를 표시하는 것이 중요합니다.
+    // 3. async/await 사용: fetch와 같은 비동기 작업을 처리하기 위해 async/await를 사용하여 코드를 더 가독성 있게 만들 수 있습니다.
+    // 4. const 대신 let 사용: 변수 btn은 변경되지 않으므로 const로 선언할 수 있습니다.
+
+    const btn = document.querySelector('button');
+
+    const fetchMessage = async () => {
+      try {
+        const response = await fetch('message.txt');
+        if(!response.ok) {
+          throw new Error('파일을 불러올 수 없습니다.');
+        }
+        const result = await response.text();
+
+        const p = document.createElement('p');
+        p.textContent = result;
+        document.body.append(p);
+      } catch (error) {
+        console.error('데이터를 불러오는 중 오류가 발생했습니다.', error);
+      }
+    }
+
+    btn.addEventListener('click', fetchMessage);
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --card-width: 600px
+}
+
+body {
+  margin: 0;
+  background-color: rgb(27, 10, 10);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+}
+div {
+  padding-bottom: 16px;
+}
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: font-size 0.4s;
+}
+a:hover {
+  font-size: 17px;
+  color: rgba(197, 200, 20, 0.888);
+}
+a > span {
+  letter-spacing: 1.2px;
+}
+.card {
+  border: 1px solid rgb(255, 255, 255);
+  text-align: center;
+  width: var(--card-width);
+  height: calc(var(--card-width) /(3/2));
+  margin: 30px auto 0;
+  transition: all .6s;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(197, 200, 20, 0.888) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.name {
+  /* border-bottom: 1px solid rgb(255, 255, 255); */
+  /* text 수직 수평 정렬 */
+  /* line-height: calc(var(--card-width) /(5/2)); */
+  text-align: center;
+  padding: 100px 0 16px;
+}
+.name > span {
+  font-size: 24px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding-bottom: 10px;
+}
+.emails a {
+  border-right: 1px solid rgb(255, 255, 255);
+  padding: 0 10px;
+}
+.emails a:last-child {
+  border-right: none;
+}
+.greet {
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+}
+.greet-text {
+  font-family: 'DungGeunMo';
+  font-size: 36px;
+  letter-spacing: 5px;
+}
+.text {
+  /* background-color: violet; */
+  margin-top: 20px;
+  font-size: 30px;
+}

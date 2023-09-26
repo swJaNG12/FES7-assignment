@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    // async function message() {
+    //   const hello = await new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       resolve('hello');
+    //     }, 100);
+    //   });
+
+    //   const world = await new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       resolve('world');
+    //     }, 100);
+    //   });
+
+    //   console.log(`${hello} ${world}`);
+    // }
+
+    // message();
+
+    // ====================================================================
+    // 위의 코드를 Promise 만 이용하도록 변경해보면 더 명확해집니다. 한번 변경해보세요!
+    function message() {
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('hello')
+        }, 100);
+      })
+      .then(hello => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+          resolve(hello + 'world');
+        }, 100)
+        })
+      })
+      .then(str => {
+        console.log(str);
+      })
+    }
+  </script>
+</body>
+</html>

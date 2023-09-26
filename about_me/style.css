@@ -1,0 +1,176 @@
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/* reset ----------------------------- */
+body, p , h1, h2, h3, ul, li {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, strong, p {
+  font: inherit;
+}
+body {
+  color: #294c60;
+}
+ul, li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* css */
+.wrapper {
+  /* border: 1px solid #bdbdbd; */
+  width: 900px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* header  ---------------------------- */
+.header {
+  /* border: 1px solid black; */
+  font-size: 36px;
+  padding: 20px 0;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*----------- header-title ------------- */
+.header-title {
+  border-bottom: 2px solid #fb8500;
+  padding-bottom: 4px;
+}
+.header-subtitle {
+  font-size: 30px;
+  margin-top: 4px;
+  padding: 20px 0;
+}
+.profile-image {
+  padding-top: 16px;
+  display: flex;
+  justify-content: center; 
+}
+.profile-image .img {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  border-radius: 50%;
+}
+/* -------- header-details--------------- */
+.details {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  margin-top: 30px;
+  width: 400px;
+}
+.details p {
+  align-self: flex-start;
+}
+.details-link {
+  border-top: 2px solid #fb8500;
+  border-bottom: 2px solid #fb8500;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.link span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .4s;
+}
+.link:hover {
+  transform: scale(1.2);
+}
+.date {
+  /* border: 1px solid red; */
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: flex-end;
+}
+/* /header  ---------------------------- */
+
+/* main -------------------------------- */
+.main {
+  width: 700px;
+  /* background-color: red; */
+}
+section {
+  margin-top: 25px;
+}
+.title{
+  font-size: 30px;
+  font-weight: 800;
+  position: relative;
+  padding-left: 20px;
+}
+.title::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: #294c60;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.list li {
+  margin: 10px 0 10px;
+}
+.list .list-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.list .list-content {
+  border-left: 3px solid #fb8500;
+  padding-left: 5px;
+  margin-top: 8px;
+}
+.list .project-content {
+  border: 0;
+  position: relative;
+  padding-left: 15px;
+}
+.list .project-content::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background-color: #294c60;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.project-github {
+  float: right;
+}

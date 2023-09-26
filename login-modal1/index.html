@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 모달</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="modal">
+    <div class="left">
+      <h1>회원가입</h1>
+      <form action="#">
+        <ol class="input-list">
+          <li>
+            <label class="a11y-hidden" for="user-name"></label>
+            <input class="user-name" id="user-name" type="text" placeholder="이름">
+          </li>
+          <li>
+            <label class="a11y-hidden" for="user-email"></label>
+            <input class="user-email" id="user-email" type="email" placeholder="E-mail">
+          </li>
+          <li>
+            <label class="a11y-hidden" for="user-pw"></label>
+            <input class="user-name" id="user-pw" type="password" placeholder="비밀번호">
+          </li>
+          <li>
+            <label class="a11y-hidden" for="user-pw"></label>
+            <input class="user-name" id="user-pw" type="password" placeholder="비밀번호 확인">
+          </li>
+        </ol>
+        <button class="btn-sign" type="button">회원가입</button>
+      </form>
+    </div>
+
+    <div class="right">
+      <div class="sns-login-group">
+        
+          <a class="login-btn facebook" href="#">Log in with facebook</a>
+
+          <a class="login-btn twitter" href="#">Log in with Twitter</a>
+
+          <a class="login-btn google" href="#">Log in with Google</a>
+
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

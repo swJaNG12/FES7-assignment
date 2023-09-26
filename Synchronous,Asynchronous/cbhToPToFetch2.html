@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <script>
+    'use strict';
+
+    class UserStorage {
+      searchUser(userName, password) {
+
+
+        return fetch('./users.json')
+                  .then(response => {
+                    console.log(response)
+                    if(!response.ok) {
+                      throw new Error('HTTP ERROR!! :', response.status);
+                    }
+                    return response.json()
+                  })
+                  .then(data => {
+                    const result = data.user.find(item => {
+                      return item.userName === userName && item.password === password;
+                    })
+                    
+                    return result ? userName : null;
+                  })
+                  .catch(error => {
+                    console.log(error)
+                  })
+      }
+
+      sayHi(user) {
+
+
+        return fetch('./greetings.json')
+                  .then(response => {
+                    console.log(response);
+                    if(!response.ok) {
+                      throw new Error('HTTP ERROR!! ', response.status);
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                    const result = data.greetings.find(item => {
+                      return item.userName === user;
+                    })
+
+                    return result ? result : null;
+                  })
+                  .catch(error => console.log(error))
+      }
+    }
+
+    const userName = prompt('이름을 입력하세요').trim();
+    const password = prompt('비밀번호를 입력하세요').trim();
+
+    const userStorage = new UserStorage();
+    userStorage
+      .searchUser(userName, password)
+      .then(result => {
+        if(!result) {
+          throw new Error('일치하는 유저가 없습니다.!!! user not found');
+        }
+        console.log(result)
+        return userStorage.sayHi(result);
+      })
+      .then(result => {
+        if(!result) {
+          throw new Error('유저와 일치하는 인삿말이 없습니다.1!!!');
+        }
+        alert(`만나서 반갑습니다 ${result.userName}님 ${result.greetings}`);
+      })
+      .catch(error => console.log(error));
+
+  </script>
+</body>
+</html>
