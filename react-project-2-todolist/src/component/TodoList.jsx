@@ -6,6 +6,9 @@ import { useMemo } from 'react';
 
 
 const TodoList = ({ todo, onUpdate, onDelete }) => {
+    console.log('TodoList 업데이트')
+
+
   const [search, setSearch] = useState('');
   const onChangeSearch = (e) => {
     setSearch(e.target.value);

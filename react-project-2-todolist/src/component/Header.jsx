@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import './Header.css'
+import React from 'react';
 
 const Header = () => {
+
+  console.log('Header 컴포넌트 리런데')
+
   return (
     <header className="Header">
       <h3>오늘은 🗓</h3>
@@ -9,4 +14,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default React.memo(Header);

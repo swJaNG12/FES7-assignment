@@ -1,4 +1,4 @@
-import { useReducer, useRef } from 'react';
+import { useCallback, useReducer, useRef } from 'react';
 import './App.css';
 import Header from './component/Header';
 // import TestComp from './component/TestComp';
@@ -30,7 +30,7 @@ const mockTodo = [
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE':
-      return [action.newItem, ...state];
+      return [...state,action.newItem];
     case 'UPDATE':
       return state.map(el => {
         return el.id === action.targetId ? {...el, isDone: !el.isDone} : el;
@@ -62,19 +62,19 @@ function App() {
     })
     idRef.current++;
   };
-  const onUpdate = targetId => {
+  const onUpdate = useCallback(targetId => {
     dispatch({
       type:'UPDATE',
       targetId
     })
-  };
+  }, []);
 
-  const onDelete = targetId => {
+  const onDelete = useCallback(targetId => {
     dispatch({
       type: 'DELETE',
       targetId
     })
-  };
+  }, []);
 
 
 
