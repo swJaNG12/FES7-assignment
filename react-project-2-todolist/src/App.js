@@ -1,4 +1,4 @@
-import { useCallback, useReducer, useRef } from 'react';
+import React, { useCallback, useReducer, useRef, useMemo } from 'react';
 import './App.css';
 import Header from './component/Header';
 // import TestComp from './component/TestComp';
@@ -44,6 +44,9 @@ const reducer = (state, action) => {
   } 
 }
 
+export const TodoStateContext = React.createContext();
+export const TodoDispatchContext = React.createContext();
+
 function App() {
   const idRef = useRef(3);
 
@@ -76,14 +79,19 @@ function App() {
     })
   }, []);
 
-
+  const memoizeDispatches = useMemo(() => {
+    return { onCreate, onDelete, onUpdate }
+  }, []);
 
   return (
     <div className="App">
-      {/* <TestComp /> */}
       <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoStateContext.Provider value={todo}>
+        <TodoDispatchContext.Provider value={memoizeDispatches}>
+          <TodoEditor />
+          <TodoList />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   );
 }
