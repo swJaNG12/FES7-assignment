@@ -1,0 +1,13 @@
+.Header {
+  border-bottom: 1px solid #2e2e2e;
+  padding: 20px 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  
+}
+.Header .header_title {
+  font-size: 20px;
+}

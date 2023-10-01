@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import Button from '../component/Button';
+import Header from '../component/Header';
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -8,20 +9,22 @@ const Home = () => {
 
   return (
     <div>
-      Home
-      <Button 
-        type={'positive'}
-        text={'positive Btn'}
-        onClick={() => console.log('positive Btn')}
+      <Header 
+        title={'Home'}
+        leftChild={
+          <Button 
+          type={'positive'}
+          text={'positive Btn'}
+          onClick={() => console.log('positive Btn')}
+          />
+        }
+        rightChild={
+          <Button 
+          type={'negative'}
+          text={'negative Btn'}
+          onClick={() => console.log('negative Btn')}
         />
-      <Button 
-        type={'negative'}
-        text={'negative Btn'}
-        onClick={() => console.log('negative Btn')}
-      />
-      <Button 
-        text={'기본 Btn'}
-        onClick={() => console.log('기본 Btn')}
+        }
       />
     </div>
   );
