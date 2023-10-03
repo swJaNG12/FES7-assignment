@@ -1,0 +1,32 @@
+.Editor .editor_section {
+  margin-bottom: 40px;
+}
+.Editor h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.Editor input,
+textarea {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  font-size: 20px;
+  font-family: 'Nanum Pen Script';
+}
+.Editor input {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.Editor textarea {
+  padding: 20px;
+  width: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.Editor .button_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
