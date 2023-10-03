@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import Button from '../component/Button';
+import Editor from '../component/Editor';
 import Header from '../component/Header';
 
 const Home = () => {
@@ -9,23 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header 
-        title={'Home'}
-        leftChild={
-          <Button 
-          type={'positive'}
-          text={'positive Btn'}
-          onClick={() => console.log('positive Btn')}
-          />
-        }
-        rightChild={
-          <Button 
-          type={'negative'}
-          text={'negative Btn'}
-          onClick={() => console.log('negative Btn')}
-        />
-        }
-      />
+      <Editor onSubmit={(state) => console.log('작성완료 버튼 클릭', state)} />
     </div>
   );
 }
