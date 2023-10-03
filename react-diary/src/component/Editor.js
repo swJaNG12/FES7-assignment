@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Button from './Button';
 import { emotionList, getFormatteDate } from '../util';
 import { useNavigate } from 'react-router-dom';
+import EmotionItem from './EmotionItem';
 
 const Editor = ({ initDate, onSubmit }) => {
   const navigate = useNavigate();
@@ -31,6 +32,14 @@ const Editor = ({ initDate, onSubmit }) => {
     navigate(-1);
   }
 
+  const handleChangeEmotion = (emotionId) => {
+    setState({
+      ...state,
+      emotionId
+    })
+    console.log(state)
+  }
+
   return (
     <div className="Editor">
       <div className="editor_section ">
@@ -43,7 +52,7 @@ const Editor = ({ initDate, onSubmit }) => {
         <h4>오늘의 감정</h4>
         <div className='input_wrapper emotion_list_wrapper'>
           {emotionList.map(el => {
-            return <img src={el.img} alt={el.name} key={el.id} />
+            return <EmotionItem key={el.id} {...el} onClick={handleChangeEmotion} isSelected={state.emotionId === el.id}/>
           })}
         </div>
       </div>
