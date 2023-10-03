@@ -10,7 +10,13 @@ const Home = () => {
 
   return (
     <div>
-      <Editor onSubmit={(state) => console.log('작성완료 버튼 클릭', state)} />
+      <Editor 
+      initData={{
+        date: new Date().getTime(),
+        emotionId: 1,
+        content: '이전에 작성했던 일기'
+      }}
+      onSubmit={(state) => console.log('작성완료 버튼 클릭', state)} />
     </div>
   );
 }

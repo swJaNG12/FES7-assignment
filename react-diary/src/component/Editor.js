@@ -1,11 +1,11 @@
 import './Editor.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from './Button';
 import { emotionList, getFormatteDate } from '../util';
 import { useNavigate } from 'react-router-dom';
 import EmotionItem from './EmotionItem';
 
-const Editor = ({ initDate, onSubmit }) => {
+const Editor = ({ initData, onSubmit }) => {
   const navigate = useNavigate();
 
   const [state, setState] = useState({
@@ -13,6 +13,15 @@ const Editor = ({ initDate, onSubmit }) => {
     emotionId: 3,
     content: ''
   })
+  useEffect(() => {
+    if(initData) {
+      setState({
+        ...initData,
+        date: getFormatteDate(new Date(parseInt(initData.date)))
+      })
+    }
+  }, [initData])
+  
   const handleChangeDate = (e) => {
     setState({
       ...state,
