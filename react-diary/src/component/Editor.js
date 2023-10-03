@@ -1,7 +1,7 @@
 import './Editor.css'
 import { useState } from 'react'
 import Button from './Button';
-import { getFormatteDate } from '../util';
+import { emotionList, getFormatteDate } from '../util';
 import { useNavigate } from 'react-router-dom';
 
 const Editor = ({ initDate, onSubmit }) => {
@@ -41,6 +41,11 @@ const Editor = ({ initDate, onSubmit }) => {
       </div>
       <div className="editor_section ">
         <h4>오늘의 감정</h4>
+        <div className='input_wrapper emotion_list_wrapper'>
+          {emotionList.map(el => {
+            return <img src={el.img} alt={el.name} key={el.id} />
+          })}
+        </div>
       </div>
       <div className="editor_section ">
         <h4>오늘의 일기</h4>
