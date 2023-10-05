@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const childProcess = require('child_process');
 require('dotenv').config();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   
@@ -54,6 +55,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 }

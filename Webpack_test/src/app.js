@@ -1,6 +1,6 @@
 import plus from "./plus.js";
 import './style.css'
-import rabbit from './rabbit.png'
+// import rabbit from './rabbit.png'
 
 // console.log(pw)
 
@@ -13,8 +13,8 @@ if(process.env.NODE_ENV === 'development') {
 
 console.log(env)
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.innerHTML = `<img src="${rabbit}" />`;
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.body.innerHTML = `<img src="${rabbit}" />`;
+// })
 
 console.log(plus(2,3))
