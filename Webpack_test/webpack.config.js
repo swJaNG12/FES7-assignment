@@ -1,8 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const childProcess = require('child_process');
+require('dotenv').config();
 
 module.exports = {
+  
   mode: 'development',
   entry: {
     main: path.resolve('./src/app.js')
@@ -43,6 +45,11 @@ module.exports = {
       conmmitter : ${childProcess.execSync('git config user.name')}
       마지막 빌드 시간은 ${new Date().toLocaleString()}입니다.
       `
+    }),
+    new webpack.DefinePlugin({
+      // pw:123456
+      dev: JSON.stringify(process.env.DEV_API),
+      pro: JSON.stringify(process.env.PRO_API)
     })
   ]
 }
