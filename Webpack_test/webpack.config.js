@@ -18,6 +18,19 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        // asset/inline 타입의 기본값 : 8kb
+        // type: 'asset/inline'
+
+        type: 'asset',
+        // asset 타입으로 조건 추가가능
+        parser: {
+          dataUrlCondition: {
+            maxSize: 20 * 1024
+          }
+        }
       }
     ]
   }
