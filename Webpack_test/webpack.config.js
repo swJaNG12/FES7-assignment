@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const childProcess = require('child_process');
 require('dotenv').config();
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   
@@ -50,6 +51,9 @@ module.exports = {
       // pw:123456
       dev: JSON.stringify(process.env.DEV_API),
       pro: JSON.stringify(process.env.PRO_API)
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
     })
   ]
 }
