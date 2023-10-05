@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack');
+const childProcess = require('child_process');
 
 module.exports = {
   mode: 'development',
@@ -33,5 +35,14 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: `
+      conmmit version : ${childProcess.execSync('git rev-parse --short HEAD')}
+      conmmitter : ${childProcess.execSync('git config user.name')}
+      마지막 빌드 시간은 ${new Date().toLocaleString()}입니다.
+      `
+    })
+  ]
 }
