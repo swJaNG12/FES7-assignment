@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const LoginPage = () => {
+const LoginPage = ({ handleIsLogin}) => {
+
 
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
@@ -34,6 +35,7 @@ const LoginPage = () => {
       const token = json.user.token;
       localStorage.setItem('token', token)
       console.log(token)
+      handleIsLogin();
     } catch (error) {
       alert(error)
       console.error(error)
