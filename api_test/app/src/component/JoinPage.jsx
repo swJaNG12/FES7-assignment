@@ -6,7 +6,8 @@ const JoinPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [accountname, setAccountname] = useState('');
-  const [imgSrc, setImgSrc] = useState('https://api.mandarin.weniv.co.kr/Ellipse.png')
+  const [imgSrc, setImgSrc] = useState('https://api.mandarin.weniv.co.kr/Ellipse.png');
+  const [intro, setIntro]  = useState('')
 
   const handleOnChangeUsername = e => {
     setUsername(e.target.value)
@@ -19,6 +20,9 @@ const JoinPage = () => {
   }
   const handleOnChangeAccountname = e => {
     setAccountname(e.target.value)
+  }
+  const handleOnChangeIntro = e => {
+    setIntro(e.target.value)
   }
 
   // email :  aaaa123@aaaa.aaa
@@ -59,6 +63,7 @@ const JoinPage = () => {
         email,
         password,
         accountname,
+        intro,
         image: imgSrc
       }
     }
@@ -157,6 +162,8 @@ const JoinPage = () => {
         <div>
           <label htmlFor="userIntroInput">소개</label>
           <input 
+          value={intro}
+          onChange={handleOnChangeIntro}
           type="text" 
           id="userIntroInput" 
           name="intro" 
