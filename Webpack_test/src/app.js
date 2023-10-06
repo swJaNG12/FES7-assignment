@@ -10,6 +10,7 @@ if(process.env.NODE_ENV === 'development') {
 } else {
   env = pro;
 }
+console.log(process.env.NODE_ENV)
 
 console.log(env)
 

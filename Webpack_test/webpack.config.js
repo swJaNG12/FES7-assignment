@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'development' ? 'development': 'production',
   entry: {
     main: path.resolve('./src/app.js')
   },
