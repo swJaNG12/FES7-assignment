@@ -6,6 +6,7 @@ const JoinPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [accountname, setAccountname] = useState('');
+  const [imgSrc, setImgSrc] = useState('https://api.mandarin.weniv.co.kr/Ellipse.png')
 
   const handleOnChangeUsername = e => {
     setUsername(e.target.value)
@@ -57,10 +58,37 @@ const JoinPage = () => {
         username,
         email,
         password,
-        accountname
+        accountname,
+        image: imgSrc
       }
     }
     join(joinData)
+  }
+
+  const imageUpload = async (image) => {
+    const baseUrl = 'https://api.mandarin.weniv.co.kr/';
+    const reqUrl = baseUrl + 'image/uploadfile';
+
+    const formData = new FormData();
+    formData.append('image', image)
+
+    console.log(formData)
+    const res = await fetch(reqUrl, {
+      method: 'POST',
+      body: formData
+    });
+
+    const json = await res.json();
+    console.log(json)
+    console.log(json.filename)
+    const imgUrl = baseUrl + json.filename
+    setImgSrc(imgUrl)
+  }
+
+  const handleOnChangeImgage = (e) => {
+    console.log(e.target.files[0]);
+    const image = e.target.files[0];
+    imageUpload(image);
   }
 
   return(
@@ -94,12 +122,13 @@ const JoinPage = () => {
         <p>나중에 언제든지 변경할 수 있습니다.</p>
         <label htmlFor="profileImg">
           <img 
-          src="https://api.mandarin.weniv.co.kr/Ellipse.png" 
+          src={imgSrc} 
           alt="" 
           srcSet="" 
           id="imagePre"/>
         </label>
         <input 
+        onChange={handleOnChangeImgage}
         type="file" 
         id="profileImg" 
         name="image" 
