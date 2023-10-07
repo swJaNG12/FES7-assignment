@@ -4,7 +4,28 @@ import Home from './pages/Home';
 import New from './pages/New';
 import Diary from './pages/Diary';
 import Edit from './pages/Edit';
-import { useReducer, useRef } from 'react';
+import { useReducer, useRef, useEffect } from 'react';
+
+const mockData = [
+  {
+    id: 'mock1',
+    date: new Date().getTime(),
+    content: 'mock1',
+    emotionId: 1
+  },
+  {
+    id: 'mock2',
+    date: new Date().getTime(),
+    content: 'mock2',
+    emotionId: 2
+  },
+  {
+    id: 'mock3',
+    date: new Date().getTime(),
+    content: 'mock3',
+    emotionId: 3
+  },
+];
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -16,6 +37,8 @@ const reducer = (state, action) => {
       })
     case 'DELETE':
       return state.filter(el => el.id !== action.targetId);
+    case 'INIT':
+      return action.data
     default:
       return state;
   }
@@ -58,6 +81,13 @@ function App() {
       targetId
     })
   }
+
+  useEffect(() => {
+    dispatch({
+      type: 'INIT',
+      data: mockData
+    })
+  }, [])
 
   return (
     <div className="App">
