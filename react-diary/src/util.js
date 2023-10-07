@@ -62,3 +62,16 @@ export const emotionList = [
   },
 
 ]
+
+
+export const  getMonthRangeByDate = (date) => {
+  // new Date(년, 월, 일)
+  const beginTimeStamp = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+
+  // new Date(년, 월, 일, 시, 분, 초)
+  // Date 객체에서 0일은 그 전달의 마지막 날을 뜻한다.
+  // 2020년 10월 0일 === 2020년 9월 마지막날
+  const endTimeStamp = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59).getTime();
+
+  return { beginTimeStamp, endTimeStamp };
+};
