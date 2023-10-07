@@ -108,7 +108,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/New' element={<New />} />
               <Route path='/Diary/:id' element={<Diary />} />
-              <Route path='/Edit' element={<Edit />} />
+              <Route path='/Edit/:id' element={<Edit />} />
             </Routes>
           </div>
         </DiaryDispatchContext.Provider>
