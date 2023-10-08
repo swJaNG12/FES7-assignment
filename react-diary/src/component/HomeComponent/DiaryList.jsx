@@ -3,6 +3,7 @@ import Button from '../common/Button/Button';
 import './DiaryList.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import DiaryItem from './DiaryItem';
 
 const sortOptionList = [
   { value: 'latest', name: '최신순' },
@@ -24,7 +25,7 @@ const DiaryList = ({ data }) => {
       copyData.sort((a,b) =>  parseInt(a.date) - parseInt(b.date));
     }
     setSortedData(copyData);
-    console.log(copyData)
+    console.log(copyData);
   }, [data, sortType])
 
   const onChangeSortTYpe = e => {
@@ -51,6 +52,12 @@ const DiaryList = ({ data }) => {
           <Button text={'새 일기 쓰기'} type={'positive'} onClick={onClickNew} />
         </div>
       </div>
+
+      <ul className='list_wrapper'>
+        {sortedData.map((el, idx) => {
+          return <DiaryItem key={el.id} {...el} />
+        })}
+      </ul>
     </div>
   );
 }
