@@ -1,0 +1,60 @@
+.Viewer {
+
+}
+
+.Viewer section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Viewer h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.Viewer .emotion_img_wrapper {
+  background-color: #ececec;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.Viewer .emotion_img_wrapper1 {
+  background-color: #64c964;
+}
+.Viewer .emotion_img_wrapper2 {
+  background-color: #9dd772;
+}
+.Viewer .emotion_img_wrapper3 {
+  background-color: #fdce17;
+}
+.Viewer .emotion_img_wrapper4 {
+  background-color: #fd8446;
+}
+.Viewer .emotion_img_wrapper5 {
+  background-color: #fd565f;
+}
+
+.Viewer .emotion_descript {
+  color: #fff;
+  font-size: 25px;
+}
+.Viewer .content_wrapper {
+  background-color: red;
+  width: 100%;
+  border-radius: 5px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.Viewer .content_wrapper p {
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+  font-family: 'Hi Melody';
+  line-height: 2.5;
+}

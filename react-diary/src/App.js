@@ -13,7 +13,7 @@ const mockData = [
   {
     id: 'mock1',
     date: new Date().getTime() -1,
-    content: 'mock1',
+    content: 'mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1mock1',
     emotionId: 1
   },
   {
@@ -27,6 +27,18 @@ const mockData = [
     date: new Date().getTime()-3,
     content: 'mock3',
     emotionId: 3
+  },
+  {
+    id: 'mock4',
+    date: new Date().getTime()-4,
+    content: 'mock4',
+    emotionId: 4
+  },
+  {
+    id: 'mock5',
+    date: new Date().getTime()-5,
+    content: 'mock5',
+    emotionId: 5
   },
 ];
 

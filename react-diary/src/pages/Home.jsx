@@ -3,7 +3,7 @@ import Header from '../component/common/Header/Header';
 import { useState, useContext, useEffect } from 'react';
 import { DiaryStateContext } from '../App';
 import { getMonthRangeByDate } from '../util';
-import DiaryList from '../component/HomeComponent/DiaryList';
+import DiaryList from '../component/HomePageComponent/DiaryList';
 
 const Home = () => {
   const data = useContext(DiaryStateContext);
