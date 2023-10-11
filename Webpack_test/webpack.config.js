@@ -39,23 +39,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-    new webpack.BannerPlugin({
-      banner: `
-      conmmit version : ${childProcess.execSync('git rev-parse --short HEAD')}
-      conmmitter : ${childProcess.execSync('git config user.name')}
-      마지막 빌드 시간은 ${new Date().toLocaleString()}입니다.
-      `
-    }),
-    new webpack.DefinePlugin({
-      // pw:123456
-      dev: JSON.stringify(process.env.DEV_API),
-      pro: JSON.stringify(process.env.PRO_API)
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
-    new CleanWebpackPlugin()
-  ]
+  }
 }
