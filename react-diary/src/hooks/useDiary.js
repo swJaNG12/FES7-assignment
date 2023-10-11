@@ -31,6 +31,7 @@ const useDiary = (id) => {
   const navigate = useNavigate();
   const data = useContext(DiaryStateContext);
   const [diary, setDiary] = useState();
+  console.log(data)
 
   useEffect(() => {
     const matchDiary = data.find(el => String(el.id) === String(id));
