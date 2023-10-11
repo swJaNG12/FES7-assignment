@@ -70,7 +70,7 @@ function App() {
     dispatch({
       type: 'CREATE',
       data: {
-        id: idRef,
+        id: idRef.current,
         date: new Date(date).getTime(),
         content,
         emotionId

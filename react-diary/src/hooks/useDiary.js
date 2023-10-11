@@ -33,12 +33,14 @@ const useDiary = (id) => {
   const [diary, setDiary] = useState();
 
   useEffect(() => {
-    const matchDiary = data.find(el => el.id === id);
+    const matchDiary = data.find(el => String(el.id) === String(id));
+    console.log(matchDiary)
     if(matchDiary) {
       setDiary(matchDiary);
     } else {
-      alert('일기가 존재하지 않습니다.');
-      navigate('/', {replace:true});
+      console.log('실패')
+      // alert('일기가 존재하지 않습니다.');
+      // navigate('/', {replace:true});
     }
   }, [id, data]);
 
