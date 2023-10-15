@@ -1,8 +1,10 @@
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
+import "./App.css";
+import React from "react";
 
-function App() {
+const App = () => {
   const expenses = [
-    {
+    {∂
       id: "e1",
       title: "Toilet Paper",
       amount: 94.12,
@@ -28,8 +30,9 @@ function App() {
     },
   ];
 
+
   return (
-    <div>
+    <div className="App">
       <h2>Let's get started!</h2>
       <Expenses expenses={expenses} />
     </div>
