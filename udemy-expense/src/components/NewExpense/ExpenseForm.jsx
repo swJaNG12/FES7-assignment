@@ -1,7 +1,7 @@
 import "./ExpenseForm.css";
 import React, { useState } from "react";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // 여러개의 상태로 처리
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
@@ -62,12 +62,28 @@ const ExpenseForm = () => {
   //   });
   // };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title,
+      amount,
+      date: new Date(date),
+    };
+
+    console.log(expenseData);
+    props.onSaveExpenseData(expenseData)
+    setTitle('');
+    setAmount('');
+    setDate('');
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input type="text" onChange={titleChangeHandler} value={title} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -76,6 +92,7 @@ const ExpenseForm = () => {
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
+            value={amount}
           />
         </div>
         <div className="new-expense__control">
@@ -85,6 +102,7 @@ const ExpenseForm = () => {
             min="2019-01-01"
             max="2023-12-31"
             onChange={dateChangeHandler}
+            value={date}
           />
         </div>
       </div>
