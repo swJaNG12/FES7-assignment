@@ -4,7 +4,7 @@ import React from "react";
 
 const App = () => {
   const expenses = [
-    {∂
+    {
       id: "e1",
       title: "Toilet Paper",
       amount: 94.12,
