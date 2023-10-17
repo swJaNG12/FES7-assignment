@@ -20,15 +20,15 @@ const ExpenseForm = (props) => {
   // changeHandler 통합
   // e 객체를 넘겨받지 못한다.
   // <input type="text" onChange={(e) => inputChangeHandler('title', e.target.value)} />
-  const inputChangeHandler = (identifier, value) => {
-    if (identifier === "title") {
-      setTitle(value);
-    } else if (identifier === "date") {
-      setDate(value);
-    } else {
-      setAmount(value);
-    }
-  };
+  // const inputChangeHandler = (identifier, value) => {
+  //   if (identifier === "title") {
+  //     setTitle(value);
+  //   } else if (identifier === "date") {
+  //     setDate(value);
+  //   } else {
+  //     setAmount(value);
+  //   }
+  // };
 
   // 한 개의 상태로 처리
   // const [userInput, setUserInput] = useState({
@@ -67,7 +67,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title,
-      amount,
+      amount: +amount,
       date: new Date(date),
     };
 
