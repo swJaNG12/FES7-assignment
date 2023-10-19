@@ -1,11 +1,12 @@
-.home-page {
+.home-page- {
   width: 390px;
+  height: 820px;
   margin: 0 auto;
   border: 1px solid #dbdbdb;
 }
 
 /* header 시작 */
-.home-page-header {
+.home-page--header {
   font: 18px;
   font-weight: bold;
   padding: 13px 0 13px 16px;
@@ -42,6 +43,9 @@
 }
 .feed .feed-header {
   margin-bottom: 16px;
+
+  /* 프로필이미지 옆에있는 텍스트를 내리기 위해 적용 */
+  margin-top: 8px;
 }
 .feed .feed-header .feed-writer {
   font-size: 12px;
