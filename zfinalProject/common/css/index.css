@@ -127,6 +127,38 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+input {
+  -webkit-appearance: none;
+
+  -moz-appearance: none;
+
+  appearance: none;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-out-spin-button {
+  -webkit-appearance: none;
+
+  -moz-appearance: none;
+
+  appearance: none;
+}
+
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -137,8 +169,12 @@ table {
   padding: 0;
   position: absolute;
 }
-button {
-  background-color: #fff;
-  border: none;
-  cursor: pointer;
+
+/* 폰트 적용 코드 */
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
