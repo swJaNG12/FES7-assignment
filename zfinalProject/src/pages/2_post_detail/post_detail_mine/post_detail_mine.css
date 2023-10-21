@@ -4,6 +4,7 @@
   margin: 0 auto;
   border: 1px solid #dbdbdb;
   font-size: 14px;
+  /* position: relative; */
 }
 
 /* header 시작 */
@@ -33,14 +34,10 @@
 
 /* post-detail-mine-content 시작 */
 
-.post-detail-mine-content {
-  padding: 20px 16px;
-  position: relative;
-}
-
 .post-detail-mine-content .post {
   display: flex;
   gap: 12px;
+  padding: 20px 16px 24px 16px;
 }
 
 .post-detail-mine-content .feed .img-feed {
@@ -77,7 +74,6 @@
   height: 18px;
   background-image: url('../../../../images/s-icon-more-vertical.svg');
   position: absolute;
-  background-color: transparent;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
@@ -114,22 +110,41 @@
 
 /* post-detail-mine-content 끝 */
 
+hr {
+  border: 1px solid #dbdbdb;
+  margin: 0;
+}
+
 /* section-comment 시작 */
 .section-comment {
-  /* background-color: aqua; */
-  position: relative;
+  padding: 20px 16px;
 }
 .section-comment .comment {
   display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
-.post-detail-mine-content .post::before {
-  content: '';
-  display: block;
-  width: 390px;
-  height: 1px;
-  background-color: #bdbdbd;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.section-comment .comment .comment-content-wrapper {
+  flex: 1;
+}
+.comment .comment-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+}
+.comment .comment-info time {
+  font-size: 10px;
+  margin-left: 6px;
+  color: #767676;
+}
+.comment .comment-info .btn-comment-toggle {
+  background-image: url('../../../../images/m-icon-more-vertical.svg');
+  width: 20px;
+  height: 20px;
+}
+.comment .comment-text {
+  margin-top: 16px;
+  color: #333;
 }
 /* section-comment 끝 */
