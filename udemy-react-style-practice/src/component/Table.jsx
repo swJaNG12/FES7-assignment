@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Table = () => {
+const Table = ({
+  savingsEndOfYear,
+  year,
+  yearlyContribution,
+  yearlyInterest,
+}) => {
   return (
     <>
       <table className="result">
@@ -15,10 +20,10 @@ const Table = () => {
         </thead>
         <tbody>
           <tr>
-            <td>연도 번호</td>
-            <td>연말 총 저축액</td>
-            <td>해당 연도 이자액</td>
-            <td>총 이자액</td>
+            <td>{year}</td>
+            <td>{savingsEndOfYear}</td>
+            <td>{yearlyContribution}</td>
+            <td>{yearlyInterest}</td>
             <td>총 투자한 자본액</td>
           </tr>
         </tbody>

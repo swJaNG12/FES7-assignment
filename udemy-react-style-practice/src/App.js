@@ -15,13 +15,7 @@ const App = () => {
 
   const calculateHandler = (userInput) => {
     console.log(userInput);
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
-    // 폼이 제출될 때 트리거되어야 합니다.
-    // 그러나 직접적으로 폼의 제출 이벤트에 바인딩하길 원하지 않을 수 있습니다...
     const calculatedData = []; // per-year results, 연도별 결과
-    // The below code calculates yearly results (total savings, interest etc)
-    // 아래 코드는 연간 결과 (총 저축액, 이자 등)를 계산합니다.
     for (let i = 0; i < userInput.duration; i++) {
       const yearlyInterest =
         userInput.currentSavings * userInput.expectedReturn;
@@ -44,6 +38,9 @@ const App = () => {
     console.log(yearlyData);
   }, [yearlyData]);
 
+  const reset = () => {
+    setYearlyData([]);
+  };
   return (
     <StyledApp>
       <header className="header">
@@ -51,10 +48,14 @@ const App = () => {
         <h1>Investment Calculator</h1>
       </header>
 
-      <Form calculateHandler={calculateHandler} />
+      <Form calculateHandler={calculateHandler} reset={reset} />
       {/* 아래 테이블은 결과 데이터가 이용 가능한 경우에만 표시합니다. */}
       {/* 데이터가 없는 경우 대체 텍스트를 표시합니다. */}
-      <Table />
+      {yearlyData.length === 0
+        ? null
+        : yearlyData.map((el, idx) => {
+            return <Table {...el} key={idx} />;
+          })}
     </StyledApp>
   );
 };

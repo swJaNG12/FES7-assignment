@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Form = ({ calculateHandler }) => {
+const Form = ({ calculateHandler, reset }) => {
   const [userInput, setUserInput] = useState({
     currentSavings: '',
     yearlyContribution: '',
@@ -48,6 +48,9 @@ const Form = ({ calculateHandler }) => {
     });
   };
 
+  const onClickReset = () => {
+    reset();
+  };
   return (
     <>
       <form className="form" onSubmit={onSubmitHandler}>
@@ -92,7 +95,7 @@ const Form = ({ calculateHandler }) => {
           </p>
         </div>
         <p className="actions">
-          <button type="reset" className="buttonAlt">
+          <button type="reset" className="buttonAlt" onClick={onClickReset}>
             초기화
           </button>
           <button type="submit" className="button">
