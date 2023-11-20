@@ -1,9 +1,24 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import EmptyValueModal from "./components/Modal/EmptyValueModal";
 import InvalidValueModal from "./components/Modal/InvalidValueModal";
 import UserInfoList from "./components/UserInfo/UserInfoList";
 import UserInput from "./components/UserInput";
+
+const GlobalStyle = createGlobalStyle`
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: inherit;
+  }
+
+  fieldset {
+		border: none;
+	}
+`;
 
 const StyledBackground = styled.div`
 	height: 100vh;
@@ -13,6 +28,7 @@ const StyledBackground = styled.div`
 function App() {
 	return (
 		<>
+			<GlobalStyle />
 			<StyledBackground>
 				{/* 유저 정보 입력컴포넌트 */}
 				<UserInput />
