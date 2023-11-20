@@ -36,7 +36,7 @@ const StyledLegend = styled.legend`
 	position: absolute;
 `;
 
-const UserInput = () => {
+const UserInput = ({ updateUserInput }) => {
 	const [userName, setUserName] = useState("");
 	const [userAge, setUserAge] = useState("");
 
@@ -44,12 +44,15 @@ const UserInput = () => {
 		if (e.target.id === "user-name") {
 			setUserName(e.target.value);
 		} else if (e.target.id === "user-age") {
-			setUserAge(parseInt(e.target.value, 10));
+			setUserAge(e.target.value);
 		}
 	};
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		updateUserInput(userName, userAge);
+		setUserName("");
+		setUserAge("");
 	};
 	return (
 		<StyledForm onSubmit={submitHandler}>
