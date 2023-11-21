@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
   fieldset {
 		border: none;
 	}
+
+  ul,ol, li, p  {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 `;
 
 const StyledBackground = styled.div`
@@ -27,8 +33,8 @@ const StyledBackground = styled.div`
 	background-color: #000;
 `;
 
-function App() {
-	const [userInput, setUserInput] = useState(null);
+const App = () => {
+	const [userInput, setUserInput] = useState([]);
 	const [isEmptyModal, setIsEmptyModal] = useState(false);
 	const [isInvalidModal, setIsInvalidModal] = useState(false);
 
@@ -42,11 +48,25 @@ function App() {
 		}
 	};
 
+	const createUserData = (userName, userAge) => {
+		return {
+			"user-name": userName,
+			"user-age": parseInt(userAge, 10),
+		};
+	};
+
 	const updateUserInput = (userName, userAge) => {
 		try {
 			validUserInput(userName, userAge);
+
+			const copyData = [...userInput];
+			const userData = createUserData(userName, userAge);
+
+			setUserInput(() => {
+				return [...copyData, userData];
+			});
 		} catch (error) {
-			alert(error);
+			console.error(error);
 		}
 	};
 
@@ -57,13 +77,15 @@ function App() {
 				{/* 유저 정보 입력컴포넌트 */}
 				<UserInput updateUserInput={updateUserInput} />
 				{/* 유저 정보 리스트컴포넌트 */}
-				<UserInfoList />
+				<UserInfoList userInput={userInput} />
 				{/* 모달 */}
-				{isEmptyModal && <EmptyValueModal />}
-				{isInvalidModal && <InvalidValueModal />}
+				{isEmptyModal && <EmptyValueModal setIsEmptyModal={setIsEmptyModal} />}
+				{isInvalidModal && (
+					<InvalidValueModal setIsInvalidModal={setIsInvalidModal} />
+				)}
 			</StyledBackground>
 		</>
 	);
-}
+};
 
 export default App;
