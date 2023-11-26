@@ -30,7 +30,7 @@ const UserInput = (props) => {
 			};
 		});
 	};
-
+	// 하연님한테는 말씀드렸는데 이번 주말에는 못하고 다음 주 부터 가능해여!
 	return (
 		<form onSubmit={submitHandler} className={classes.form}>
 			<div className={classes["input-group"]}>
